@@ -14,7 +14,10 @@ doc1 = snoowse.insert_document(collection_name, "test1", x)
 doc2 = snoowse.insert_document(collection_name, "test2", y)
 doc3 = snoowse.insert_document(collection_name, "test3", z)
 
-for arr in collection:
-     print(arr)
-     
-snoowse.delete_collection(collection_name)
+try: 
+     arr_res = snoowse.euclidean_similarity_search(collection, x)
+     for res in arr_res:
+          print(res)
+
+finally:     
+     snoowse.delete_collection(collection_name)
