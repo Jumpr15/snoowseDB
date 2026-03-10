@@ -1,12 +1,16 @@
 import zarr
 import numpy as np
+
 from uuid import uuid4
+from fastembed import TextEmbedding
 
 class vector_store:
      def __init__(self, name, dtype):
           self.dtype = dtype
           self.vector_store = zarr.create_group(store=f"{name}.zarr")
           
+     def embed_document(self, text):
+          pass
      
      def add_vector(self, name, vector: np.ndarray): # vector must be np array
           arr = self.vector_store.create_array(
@@ -21,3 +25,9 @@ class vector_store:
 #      np.array([5, 3, 6, 6, 2])
 # )
 
+text = "fogjo"
+
+embedding_model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embedding_generator = embedding_model.embed(text)
+embedding_list = list(embedding_generator)
+print(embedding_list)
