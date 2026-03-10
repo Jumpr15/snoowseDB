@@ -15,9 +15,9 @@ class vector_store:
                dtype=self.dtype
           )
           
-store = vector_store("store", "f2")
-store.add_vector(
-     "happy",
-     np.array([5, 3, 6, 6, 2])
-)
+# store = vector_store("store", "f2")
+# store.add_vector(
+#      "happy",
+#      np.array([5, 3, 6, 6, 2])
+# )
 
