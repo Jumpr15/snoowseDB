@@ -6,6 +6,8 @@ snoowse = Snoowse_Client()
 x = np.array([1, 2, 3])
 y = np.array([2, 4, 6])
 z = np.array([15, 24, 33])
+w = [x, y, z]
+
 
 collection_name = "snoowsedb"
 
@@ -15,9 +17,11 @@ doc2 = snoowse.insert_document(collection_name, "test2", y)
 doc3 = snoowse.insert_document(collection_name, "test3", z)
 
 try: 
-     arr_res = snoowse.euclidean_similarity_search(collection, x)
-     for res in arr_res:
-          print(res)
+     snoowse.cluster_setup(collection_name, w)
+     snoowse.document_ingestion(collection_name, x)
+     r = snoowse.cluster_search(collection_name, y)
+     print(r)
 
 finally:     
-     snoowse.delete_collection(collection_name)
+     # snoowse.delete_collection(collection_name)
+     pass
