@@ -1,3 +1,4 @@
+### SAMPLE CODE 
 from snoowse_client import Snoowse_Client
 import numpy as np
 
